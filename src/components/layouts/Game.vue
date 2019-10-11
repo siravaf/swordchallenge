@@ -2,20 +2,20 @@
     <div class="gameSection">
         <!-- Header !-->
         <div class="title">
-            <h1><b>Tic Tac Toe Games</b><br></h1>
-            <p>Welcome to the best game in the world</p>
+            <h3><b>Tic Tac Toe Games</b><br></h3><br>
+            <p>Welcome to the best game in the world.</p>
         </div>
 
-
+        <br>
         <!-- Buttons !-->
 
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="btn-group col-md-4" role="group">
+            <div class="col-md-4" style="margin-left: 50px"></div>
+            <div class="btn-group col-md-3" role="group">
                 <button type="button" class="btn buttonboxSelect">Tic Tac Toe</button>
                 <button type="button" class="btn buttonbox">4-in-a-row</button>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-3"></div>
         </div>
         <br>
         <br>
@@ -24,31 +24,67 @@
         <div class="row ">
             <div class="col-md-3 gameArea">
                 <h1><b>Player 1</b></h1>
-                <h2>2</h2>
+                <h2 style="margin-left: 30%">2</h2>
             </div>
 
             <div class="col-md-6">
                 <div class="box">
-                <Play/>
+                    <div class="app">
+                        <grid></grid>
+                        <button class="restart" @click="restart">Restart</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3 gameArea2">
                 <h1><b>Player 2</b></h1>
-                <h2>4</h2>
+                <h2 style="margin-left: 20%">4</h2>
             </div>
         </div>
+        <br>
+        <div id="display">
+            00:00:00
+        </div>
+
     </div>
+
 
 </template>
 
 <script>
 
-    import Play from "@/components/layouts/Play";
+    import Grid from '@/components/layouts/Grid.vue'
 
 
     export default {
-        name: "Game",
-        components: {Play}
+        components: {Grid},
+        name: 'Game',
+        data() {
+            return {
+                matches: 0,
+                wins: {
+                    O: 0,
+                    X: 0,
+                },
+            }
+        },
+
+        methods: {
+            restart() {
+
+                Event.$emit('clearCell')
+
+                Event.$emit('gridReset')
+
+                this.matches++
+            }
+
+        },
+
+        created() {
+            Event.$on('win', winner => this.wins[winner]++)
+            Event.$emit('clickWin', this.wins);
+            Event.$emit('win', this.activePlayer)
+        }
     }
 
 
@@ -72,10 +108,10 @@
     }
     .gameSection {
         background: #F6F8F9;
-        height: 1000px;
+        height: 800px;
         left: 0;
         right: 0;
-        margin-top: 60px;
+        margin-top: 80px;
     }
 
     .title {
@@ -94,7 +130,7 @@
     .buttonboxSelect {
 
         border-style: solid;
-        background: #D8D8D8;
+        background: #7f8c8d;
     }
 
     .box {
@@ -104,7 +140,7 @@
 
     .gameArea {
         margin-top: 15%;
-        padding-left: 5%;
+        padding-left: 10%;
 
     }
 
@@ -113,5 +149,36 @@
 
     }
 
+    .app {
+        margin: 0 auto;
+        width: 500px;
+        color: #34495e;
+    }
+
+    .restart {
+        background-color: #e74c3c;
+        color: #fff;
+        border: 0px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-family: 'Dosis', Helvetica, sans-serif;
+        font-size: 1.4em;
+        font-weight: bold;
+        margin: 0px;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .restart:hover {
+        background-color: #c0392b;
+        cursor: pointer;
+    }
+
+    #display {
+        width: 100%;
+        font-size: 50px;
+        margin-left: 43%;
+
+    }
 
 </style>

@@ -2,7 +2,7 @@
     <div class="row">
                                 <!-- Image !-->
     <div class="col-md-4">
-        <img class="profileImg" alt="logo" src="@/assets/images/picture.jpg" height="120" width="120">
+        <img class="profileImg" alt="logo" src="@/assets/images/picture.jpg" height="140" width="140">
     </div>
     <div class="col-md-4 profile">
                                 <!-- Player Info !-->
@@ -12,7 +12,7 @@
            Occupation: Ui/Ux designer<br></p>
     </div>
                                 <!-- About !-->
-    <div class="col-md-4 profile">
+        <div class="col-md-4 profile" style="text-align: right">
        <p> Peter Griffin is the main character of the American animated sitcom Family Guy. ...
         Peter is married to Lois Griffin and is the father of Meg, Chris, and Stewie.
         He also has a dog named Brian, with whom he is best friends. He has worked at a toy factory,
@@ -54,19 +54,20 @@
         margin-left: -3%;;
     }
 
-    .profile3{
-        margin-left:50%;
-        width:40%;
-        height:50%;
-        text-align: right;
-        vertical-align:middle;
-        position: relative;
-        transform: translateY(-150%);
-    }
-    .c{
-        height:50px;
-        left:0;
-        right:0;
-        margin-top:150px;
-    }
+   /*
+       .profile3{
+           margin-left:50%;
+           width:40%;
+           height:50%;
+           text-align: right;
+           vertical-align:middle;
+           position: relative;
+           transform: translateY(-150%);
+       }
+       .c{
+           height:50px;
+           left:0;
+           right:0;
+           margin-top:150px;
+       }*/
 </style>
