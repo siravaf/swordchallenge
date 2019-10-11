@@ -1,8 +1,14 @@
-import Vue from 'vue'
+import '@babel/polyfill'
+import 'mutationobserver-shim'
+import Vue from 'vue';
+import './plugins/bootstrap-vue'
 import App from './App.vue'
 
-Vue.config.productionTip = false
+
+window.Event = new Vue()
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  render: h => h(App)
+})
+
