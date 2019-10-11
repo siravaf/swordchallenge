@@ -59,7 +59,7 @@
 
     .button {
         background-color: #7f8c8d;
-        transform: translateY(-7%);
+        transform: translateY(-3%);
 
     }
 
@@ -72,22 +72,5 @@
         margin-top: 5%;
     }
 
-    /*
-    .footer1{
-        margin-left:3px;
-     }
-    .footer2{
-        margin-left:40%;
-        padding-right: 10px;
-        padding-left: 10px;
-        width:20%;
-        height:50%;
-        transform: translateY(40%);
-     }
-    .footer3{
-        margin-left: 75%;
-        width:20%;
-     }
-    */
 
 </style>

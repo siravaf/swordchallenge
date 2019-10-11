@@ -49,7 +49,7 @@
             <h3 style="margin-left: 3%"><b>Total time</b></h3>
             00:42:13
         </div>
-
+        <br>
     </div>
 
 
@@ -94,7 +94,7 @@
     }
 
     .subTitle {
-        margin-left: 15%
+        margin-left: 20%
     }
 
     #display {
